@@ -1,8 +1,6 @@
 "use client"
 import React, { useRef, useEffect, useCallback } from 'react';
-import '../app/globals.css';
-import Head from 'next/head';
-import config from './config.json';
+import '../app/globals.css'; 
 import { useHistory } from './components/history/hooks';
 import { banner } from './helpers/bin';
 import History from './components/history/history';
@@ -42,17 +40,7 @@ const IndexPage: React.FC = () => {
   };
 
   return (
-    <>
-      <Head>
-        <title>{config.title}</title>
-        <meta
-          name="viewport"
-          content="initial-scale=1.0, width=device-width"
-          key="viewport"
-          maximum-scale="1"
-        />
-      </Head>
-
+    <>  
       <div
         className="text-light-foreground dark:text-dark-foreground min-w-max text-xs md:min-w-full md:text-base"
         onClick={onClickAnywhere}

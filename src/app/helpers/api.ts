@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import config from '..//config.json';
+import config from '../helpers/config';
 
 interface GitHubRepo {
   name: string;

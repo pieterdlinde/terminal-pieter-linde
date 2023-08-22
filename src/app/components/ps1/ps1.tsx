@@ -1,5 +1,5 @@
-import React from 'react'; 
-import config from '../../config.json';
+import config from '../../helpers/config';
+import React from 'react';  
 
 const Ps1: React.FC = () => {
   return (
