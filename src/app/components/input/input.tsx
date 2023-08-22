@@ -1,22 +1,23 @@
-import React, { ChangeEvent, KeyboardEvent } from 'react';
-
-interface HistoryItem {
-  command: string;
-}
+import { shell } from '@/app/helpers/shell';
+import { handleTabCompletion } from '@/app/helpers/tabCompletion';
+import React, { RefObject, useRef } from 'react';
+import Ps1 from '../ps1/ps1';
+import { commandExists } from '@/app/helpers/command-exists';
+ 
 
 interface InputProps {
-  inputRef: React.RefObject<HTMLInputElement>;
-  containerRef: React.RefObject<HTMLDivElement>;
+  inputRef: RefObject<HTMLInputElement>;
+  containerRef: RefObject<HTMLDivElement>;
   command: string;
-  history: HistoryItem[];
+  history: Array<{ command: string }>;
   lastCommandIndex: number;
   setCommand: React.Dispatch<React.SetStateAction<string>>;
-  setHistory: React.Dispatch<React.SetStateAction<HistoryItem[]>>;
+  setHistory: (output:string) => void;
   setLastCommandIndex: React.Dispatch<React.SetStateAction<number>>;
   clearHistory: () => void;
 }
 
-export const Input: React.FC<InputProps> = ({
+const Input: React.FC<InputProps> = ({
   inputRef,
   containerRef,
   command,
@@ -27,7 +28,7 @@ export const Input: React.FC<InputProps> = ({
   setLastCommandIndex,
   clearHistory,
 }) => {
-  const onSubmit = async (event: KeyboardEvent<HTMLInputElement>) => {
+  const onSubmit = async (event: React.KeyboardEvent<HTMLInputElement>) => {
     const commands: string[] = history
       .map(({ command }) => command)
       .filter((command: string) => command);
@@ -35,7 +36,7 @@ export const Input: React.FC<InputProps> = ({
     if (event.key === 'c' && event.ctrlKey) {
       event.preventDefault();
       setCommand('');
-      setHistory([]);
+      setHistory('');
       setLastCommandIndex(0);
     }
 
@@ -46,14 +47,14 @@ export const Input: React.FC<InputProps> = ({
 
     if (event.key === 'Tab') {
       event.preventDefault();
-      // handleTabCompletion(command, setCommand);
+      handleTabCompletion(command, setCommand);
     }
 
     if (event.key === 'Enter' || event.code === '13') {
       event.preventDefault();
       setLastCommandIndex(0);
-      // await shell(command, setHistory, clearHistory, setCommand);
-      containerRef.current!.scrollTo(0, containerRef.current!.scrollHeight);
+      await shell(command, setHistory, clearHistory, setCommand);
+      containerRef!.current!.scrollTo(0, containerRef!.current!.scrollHeight);
     }
 
     if (event.key === 'ArrowUp') {
@@ -84,14 +85,16 @@ export const Input: React.FC<InputProps> = ({
     }
   };
 
-  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
-    // setCommand(event.target.value);
+  const onChange = ({
+    target: { value },
+  }: React.ChangeEvent<HTMLInputElement>) => {
+    setCommand(value);
   };
 
   return (
     <div className="flex flex-row space-x-2">
       <label htmlFor="prompt" className="flex-shrink">
-        {/* <Ps1 /> */}
+        <Ps1 />
       </label>
 
       <input
@@ -99,7 +102,7 @@ export const Input: React.FC<InputProps> = ({
         id="prompt"
         type="text"
         className={`bg-light-background dark:bg-dark-background focus:outline-none flex-grow ${
-           command === ''
+          commandExists(command) || command === ''
             ? 'text-dark-green'
             : 'text-dark-red'
         }`}
@@ -108,7 +111,7 @@ export const Input: React.FC<InputProps> = ({
         autoFocus
         onKeyDown={onSubmit}
         autoComplete="off"
-        spellCheck="false"
+        spellCheck={false}
       />
     </div>
   );
