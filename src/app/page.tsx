@@ -2,7 +2,7 @@
 import React, { useRef, useEffect, useCallback } from 'react';
 import '../app/globals.css'; 
 import { useHistory } from './components/history/hooks';
-import { banner } from './helpers/bin';
+import { banner } from './helpers/public';
 import History from './components/history/history';
 import Input from './components/input/input';
  

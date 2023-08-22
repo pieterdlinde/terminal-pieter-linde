@@ -1,4 +1,4 @@
-import * as bin from './bin';
+import * as bin from './public';
 
 export const commandExists = (command: string): boolean => {
   const commands: string[] = ['clear', ...Object.keys(bin)];

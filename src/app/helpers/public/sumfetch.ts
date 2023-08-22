@@ -1,4 +1,4 @@
-import config from '../../helpers/config';
+import config from '../config';
 
 export const sumfetch = async (args: string[]): Promise<string> => {
   if (config.ascii === 'cveinnt') {

@@ -1,5 +1,5 @@
 import * as bin from './index';
-import config from '../../helpers/config';
+import config from '../config';
 
 export const help = async (args: string[]): Promise<string> => {
   const commands: string[] = Object.keys(bin).sort();

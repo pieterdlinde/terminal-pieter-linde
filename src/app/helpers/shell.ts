@@ -1,5 +1,5 @@
 import React from 'react';
-import * as bin from './bin';
+import * as bin from './public';
 
 export const shell = async (
   command: string,

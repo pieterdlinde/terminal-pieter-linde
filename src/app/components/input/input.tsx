@@ -1,8 +1,8 @@
 import { shell } from '@/app/helpers/shell';
-import { handleTabCompletion } from '@/app/helpers/tabCompletion';
 import React, { RefObject, useRef } from 'react';
 import Ps1 from '../ps1/ps1';
 import { commandExists } from '@/app/helpers/command-exists';
+import { handleTabCompletion } from '@/app/helpers/keyboard-helpers';
  
 
 interface InputProps {
