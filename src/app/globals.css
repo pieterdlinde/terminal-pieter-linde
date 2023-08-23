@@ -11,15 +11,7 @@
 * {
   font-family: 'Hack', monospace;
 }
-
-html,
-body,
-body > div:first-child,
-div#__next,
-div#__next > div {
-  height: 100%;
-  overflow: auto;
-}
+ 
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -32,6 +24,6 @@ div#__next > div {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ebdbb2;
+  background: #b6b5b4;
   border-radius: 5px;
 }
