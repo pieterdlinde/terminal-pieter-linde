@@ -12,24 +12,20 @@ const config: Config = {
       current: 'currentColor',
       ...{
         "light": {
-          "background": "#FBF1C9",
-          "foreground": "#3C3836",
-          "yellow": "#D79921",
-          "green": "#98971A",
-          "gray": "#7C6F64",
-          "blue": "#458588",
-          "red": "#CA2124"
+          "background": "#000000",
+          "foreground": "#CECECE",
+           
         },
         "dark": {
-          "background": "#2E3440",
-          "foreground": "#E5E9F0",
-          "yellow": "#5E81AC",
-          "green": "#A3BE8C",
-          "gray": "#88C0D0",
-          "blue": "#EBCB8B",
-          "red": "#BF616A"
+          "background": "#000000",
+          "foreground": "#FFFFFF",
+          
         }
-      },
+      }
+      
+      
+      
+      ,
     },
     extend: {
       backgroundImage: {

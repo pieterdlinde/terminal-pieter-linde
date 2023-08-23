@@ -103,7 +103,7 @@ const Input: React.FC<InputProps> = ({
         className={`bg-light-background dark:bg-dark-background focus:outline-none flex-grow ${
           AvailableCommands.commandExists(command) || command === ''
             ? 'text-dark-green'
-            : 'text-dark-red'
+            : 'text-light-red'
         }`}
         value={command}
         onChange={onChange}
