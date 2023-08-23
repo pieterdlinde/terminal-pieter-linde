@@ -133,7 +133,7 @@ export const sudo = async (args?: string[]): Promise<string> => {
 export const banner = (args?: string[]): string => {
   return `
 
-  /$$$$$$$  /$$              /$$                        
+   /$$$$$$$  /$$             /$$                        
   | $$__  $$|__/            | $$                        
   | $$  \ $$ /$$  /$$$$$$  /$$$$$$    /$$$$$$   /$$$$$$ 
   | $$$$$$$/| $$ /$$__  $$|_  $$_/   /$$__  $$ /$$__  $$
