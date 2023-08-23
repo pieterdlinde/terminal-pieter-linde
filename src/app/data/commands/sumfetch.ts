@@ -1,6 +1,6 @@
 import config from '../config';
 
-export const sumfetch = async (args: string[]): Promise<string> => {
+export const sumfetch = async (args: string): Promise<string> => {
     return `
                                                   
              @@@@@@@@@@@@@                   sumfetch: summary display

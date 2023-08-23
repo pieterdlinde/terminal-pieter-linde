@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 import config from "../config";
 
-export const readme = async (args: string[]): Promise<string> => {
+export const readme = async (args: string): Promise<string> => {
   const readme = await getReadme();
   return `Opening GitHub README...\n${readme}`;
 };
