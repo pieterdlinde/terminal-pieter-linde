@@ -1,10 +1,10 @@
 "use client"
 import React, { useRef, useEffect, useCallback } from 'react';
 import '../app/globals.css'; 
-import { useHistory } from './components/history/hooks';
-import { banner } from './helpers/public';
+import { useHistory } from './components/history/hooks'; 
 import History from './components/history/history';
 import Input from './components/input/input';
+import { banner } from './data/commands';
  
  
 
