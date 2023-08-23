@@ -1,15 +1,15 @@
-import config from '../../helpers/config';
+import config from '../../data/config';
 import React from 'react';  
 
 const Ps1: React.FC = () => {
   return (
     <div>
       <span className="text-light-yellow dark:text-dark-yellow">
-        {config.ps1_username}
+        {config.username}
       </span>
       <span className="text-light-gray dark:text-dark-gray">@</span>
       <span className="text-light-green dark:text-dark-green">
-        {config.ps1_hostname}
+        {config.hostname}
       </span>
       <span className="text-light-gray dark:text-dark-gray">:$ ~ </span>
     </div>

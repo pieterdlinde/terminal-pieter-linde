@@ -1,8 +1,7 @@
 import { shell } from '@/app/helpers/shell';
 import React, { RefObject, useRef } from 'react';
 import Ps1 from '../ps1/ps1';
-import { commandExists } from '@/app/helpers/command-exists';
-import { handleTabCompletion } from '@/app/helpers/keyboard-helpers';
+import { AvailableCommands } from '@/app/data/available-commands';
  
 
 interface InputProps {
@@ -47,7 +46,7 @@ const Input: React.FC<InputProps> = ({
 
     if (event.key === 'Tab') {
       event.preventDefault();
-      handleTabCompletion(command, setCommand);
+      AvailableCommands.handleTabCompletion(command, setCommand);
     }
 
     if (event.key === 'Enter' || event.code === '13') {
@@ -102,7 +101,7 @@ const Input: React.FC<InputProps> = ({
         id="prompt"
         type="text"
         className={`bg-light-background dark:bg-dark-background focus:outline-none flex-grow ${
-          commandExists(command) || command === ''
+          AvailableCommands.commandExists(command) || command === ''
             ? 'text-dark-green'
             : 'text-dark-red'
         }`}

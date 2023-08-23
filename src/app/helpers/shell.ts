@@ -1,5 +1,5 @@
 import React from 'react';
-import * as bin from './public';
+import { AvailableCommands } from '../data/available-commands';
 
 export const shell = async (
   command: string,
@@ -8,20 +8,17 @@ export const shell = async (
   setCommand: React.Dispatch<React.SetStateAction<string>>
 ) => {
   const args: any = command.split(' ');
-  args[0] = args[0].toLowerCase();
-
   if (args[0] === 'clear') {
     clearHistory();
   } else if (command === '') {
     setHistory('');
-  } else if (!(args[0] in bin as any)) {
+  } else if (!AvailableCommands.commandExists(args[0])) {
     setHistory(
       `shell: command not found: ${args[0]}. Try 'help' to get started.`
     );
   } else {
-    const anyBin: any = bin;
-    const output = await anyBin[args[0]](args.slice(1));
-    setHistory(output);
+    const result = await AvailableCommands.executeCommand(args[0], args[1]);
+    setHistory(result);
   }
 
   setCommand('');
