@@ -12,7 +12,6 @@ export * from './linkedin';
 export * from './ls';
 export * from './projects';
 export * from './quote';
-export * from './readme';
 export * from './reddit';
 export * from './repo';
 export * from './resume';

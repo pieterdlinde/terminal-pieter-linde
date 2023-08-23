@@ -19,15 +19,15 @@ interface Config {
     readmeUrl: "https://github.com/pieterdlinde/terminal-pieter-linde",
     name: "Pieter Linde",
     social: {
-      github: "github",
-      linkedin: "linkedin",
+      github: "pieterdlinde",
+      linkedin: "pieter-linde-518b08119",
       medium: "medium"
     },
     email: "pieterdlinde@gmail.com",
-    hostname: "lindehouse",
+    hostname: "root",
     username: "guest",
     repo: "https://github.com/pieterdlinde/terminal-pieter-linde/blob/main/README.md",
-    resume_url: "https://upload.wikimedia.org/wikipedia/commons/c/cc/Resume.pdf",
+    resume_url: "https://docs.google.com/document/d/1IDsYrdJ5r86gvtjpGfVovufp7-CxpZsUSoQ8fgfTLFY/edit",
     gameGui_ur:"https://game-pieter-linde-profile.firebaseapp.com",
     gui_url:"https://pieter-linde-profile.firebaseapp.com/"
   };
