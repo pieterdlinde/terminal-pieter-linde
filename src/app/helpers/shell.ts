@@ -17,7 +17,7 @@ export const shell = async (
       `shell: command not found: ${args[0]}. Try 'help' to get started.`
     );
   } else {
-    const result = await AvailableCommands.executeCommand(args[0], args[1]);
+    const result = await AvailableCommands.executeCommand(args[0], args.slice(1));
     setHistory(result);
   }
 
