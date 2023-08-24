@@ -21,11 +21,7 @@ const config: Config = {
           "foreground": "#FFFFFF",
           
         }
-      }
-      
-      
-      
-      ,
+      }  
     },
     extend: {
       backgroundImage: {

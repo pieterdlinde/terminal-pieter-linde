@@ -41,12 +41,12 @@ const TerminalPage: React.FC = () => {
     return (
         <>
             <div
-                className="text-light-foreground dark:text-dark-foreground md:text-base"
+                className="text-light-foreground dark:text-dark-foreground md:text-base rounded-md"
                 onClick={onClickAnywhere}
-                style={{height:'70vh', width:'70vw'}}
+                style={{height:'70vh', width:'70vw', borderWidth:'5px', boxShadow:'-4px -3px 45px 21px rgba(0,0,0,0.35)'}}
             >
-                <main className="bg-light-background dark:bg-dark-background w-full h-full p-2">
-                    <div className="p-8 overflow-hidden h-full border-2 rounded border-light-yellow dark:border-dark-yellow">
+                <main className="bg-light-background dark:bg-dark-background w-full h-full p-2 rounded-s">
+                    <div className="p-3 overflow-hidden h-full  rounded border-light-yellow dark:border-dark-yellow">
                         <div ref={containerRef} className="overflow-y-auto h-full">
                             <History history={history} />
 
