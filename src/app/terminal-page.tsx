@@ -9,6 +9,7 @@ import { banner } from './data/commands';
 
 const TerminalPage: React.FC = () => {
     const [isMaxedOut, setMaxedOut] = useState(false);
+    const [isCloded, setClosed] = useState(false);
 
     const inputRef = React.useRef<HTMLInputElement>(null);
 
@@ -44,6 +45,14 @@ const TerminalPage: React.FC = () => {
         setMaxedOut(!isMaxedOut)
     };
 
+    const onClose = () => {
+        setClosed(!isCloded)
+    };
+
+    if(isCloded){
+        return <></>
+    }
+
     if(isMaxedOut){
         return (
             <>
@@ -55,7 +64,7 @@ const TerminalPage: React.FC = () => {
                             <div onClick={onMaximizeScreen} className='cursor-pointer flex items-center origin-center justify-center rounded-sm' style={{ marginRight: '5px', backgroundColor: '#ECEAD8', width: '22px', fontWeight: 'bold', boxShadow: '0.5px 0.5px 0.5px 0.5px rgba(0,0,0,0.35)' }}>
                                 <img src="maxwindow.png" style={{ width: '25px', height: '20px', opacity: '0.8' }} ></img>
                             </div>
-                            <div className='cursor-pointer flex items-center origin-center justify-center rounded-sm' style={{ backgroundColor: '#ECEAD8', width: '22px', fontWeight: 'bold', boxShadow: '0.5px 0.5px 0.5px 0.5px rgba(0,0,0,0.35)' }}>
+                            <div onClick={onClose} className='cursor-pointer flex items-center origin-center justify-center rounded-sm' style={{ backgroundColor: '#ECEAD8', width: '22px', fontWeight: 'bold', boxShadow: '0.5px 0.5px 0.5px 0.5px rgba(0,0,0,0.35)' }}>
                                 <img src="close.png" style={{ width: '12px', height: '12px', opacity: '0.6' }} ></img>
                             </div>
                         </div>
@@ -99,7 +108,7 @@ const TerminalPage: React.FC = () => {
                         <div onClick={onMaximizeScreen} className='cursor-pointer flex items-center origin-center justify-center rounded-sm' style={{ marginRight: '5px', backgroundColor: '#ECEAD8', width: '22px', fontWeight: 'bold', boxShadow: '0.5px 0.5px 0.5px 0.5px rgba(0,0,0,0.35)' }}>
                             <img src="maxwindow.png" style={{ width: '25px', height: '20px', opacity: '0.8' }} ></img>
                         </div>
-                        <div className='cursor-pointer flex items-center origin-center justify-center rounded-sm' style={{ backgroundColor: '#ECEAD8', width: '22px', fontWeight: 'bold', boxShadow: '0.5px 0.5px 0.5px 0.5px rgba(0,0,0,0.35)' }}>
+                        <div onClick={onClose} className='cursor-pointer flex items-center origin-center justify-center rounded-sm' style={{ backgroundColor: '#ECEAD8', width: '22px', fontWeight: 'bold', boxShadow: '0.5px 0.5px 0.5px 0.5px rgba(0,0,0,0.35)' }}>
                             <img src="close.png" style={{ width: '12px', height: '12px', opacity: '0.6' }} ></img>
                         </div>
                     </div>
