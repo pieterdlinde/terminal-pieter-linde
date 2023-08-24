@@ -1,6 +1,6 @@
 export const about = async (args: string): Promise<string> => {
     return `
-Hi, I'm Pieter Linde.
+Hi, I'm Pieter Linde 😀
 
 Welcome to my website! 
 Here, you'll find a collection of my work, projects, and interests. 
