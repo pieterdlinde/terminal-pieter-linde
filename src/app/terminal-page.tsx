@@ -41,8 +41,9 @@ const TerminalPage: React.FC = () => {
     return (
         <>
             <div
-                className="text-light-foreground dark:text-dark-foreground min-w-max text-xs md:min-w-full md:text-base"
+                className="text-light-foreground dark:text-dark-foreground md:text-base"
                 onClick={onClickAnywhere}
+                style={{height:'70vh', width:'70vw'}}
             >
                 <main className="bg-light-background dark:bg-dark-background w-full h-full p-2">
                     <div className="p-8 overflow-hidden h-full border-2 rounded border-light-yellow dark:border-dark-yellow">
