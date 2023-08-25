@@ -37,6 +37,8 @@ export class AvailableCommands {
       new AvailableCommand("sumfetch", "Fetch summary"),
       new AvailableCommand("weather", "Display weather"),
       new AvailableCommand("whoami", "Show current user"),
+      new AvailableCommand("bored", "Are you board?"),
+      new AvailableCommand("agify", "How old is your name?"),
     ]
   };
 
