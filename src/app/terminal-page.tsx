@@ -1,16 +1,14 @@
 "use client"
 import React, { useRef, useEffect, useCallback, useState } from 'react';
 import '../app/globals.css';
-import { useHistory } from './components/history/hooks';
+import { useHistory } from './components/history/use-history';
 import History from './components/history/history';
 import Input from './components/input/input';
 import { banner } from './data/commands';
 
 
-const TerminalPage: React.FC = () => {
-    const [isMaxedOut, setMaxedOut] = useState(false);
-    const [isCloded, setClosed] = useState(false);
-
+export default function TerminalPage(prop: { terminalState: any }) {
+    const [isMaximized, setIsMaximized] = useState(false);
     const inputRef = React.useRef<HTMLInputElement>(null);
 
     const containerRef = useRef<HTMLDivElement>(null);
@@ -42,29 +40,29 @@ const TerminalPage: React.FC = () => {
     };
 
     const onMaximizeScreen = () => {
-        setMaxedOut(!isMaxedOut)
+        setIsMaximized(!isMaximized)
     };
 
-    const onClose = () => {
-        setClosed(!isCloded)
+    const onTerminalClose = () => {
+        prop.terminalState.setIsTerminalClosed(true)
     };
 
-    if(isCloded){
+    if (prop.terminalState.isTerminalClosed) {
         return <></>
     }
 
-    if(isMaxedOut){
+    if (isMaximized) {
         return (
             <>
-                <div className='text-light-foreground dark:text-dark-foreground rounded-t-md' style={{ borderColor: 'white', borderWidth: '5px', background: 'linear-gradient(90deg, rgba(1,84,229,1) 0%, rgba(32,117,242,1) 10%, rgba(56,178,254,1) 100%);' }}>
+                <div className='text-light-foreground dark:text-dark-foreground rounded-t-md' style={{ borderColor: 'white', borderWidth: '5px', background: 'linear-gradient(90deg, rgba(1,84,229,1) 0%, rgba(32,117,242,1) 10%, rgba(56,178,254,1) 100%)' }}>
                     <div className='flex p-1'>
                         <img src="cmd.png" style={{ marginRight: '7px', width: '30px', height: '25px' }}></img>
-                        C:\Resume\PieterLinde\resume\cmd.exe {isMaxedOut}
+                        C:\Resume\PieterLinde\resume\cmd.exe
                         <div className='flex w-full origin-right justify-end'>
                             <div onClick={onMaximizeScreen} className='cursor-pointer flex items-center origin-center justify-center rounded-sm' style={{ marginRight: '5px', backgroundColor: '#ECEAD8', width: '22px', fontWeight: 'bold', boxShadow: '0.5px 0.5px 0.5px 0.5px rgba(0,0,0,0.35)' }}>
                                 <img src="maxwindow.png" style={{ width: '25px', height: '20px', opacity: '0.8' }} ></img>
                             </div>
-                            <div onClick={onClose} className='cursor-pointer flex items-center origin-center justify-center rounded-sm' style={{ backgroundColor: '#ECEAD8', width: '22px', fontWeight: 'bold', boxShadow: '0.5px 0.5px 0.5px 0.5px rgba(0,0,0,0.35)' }}>
+                            <div onClick={onTerminalClose} className='cursor-pointer flex items-center origin-center justify-center rounded-sm' style={{ backgroundColor: '#ECEAD8', width: '22px', fontWeight: 'bold', boxShadow: '0.5px 0.5px 0.5px 0.5px rgba(0,0,0,0.35)' }}>
                                 <img src="close.png" style={{ width: '12px', height: '12px', opacity: '0.6' }} ></img>
                             </div>
                         </div>
@@ -100,15 +98,17 @@ const TerminalPage: React.FC = () => {
 
     return (
         <>
-            <div className='text-light-foreground dark:text-dark-foreground rounded-t-md' style={{ borderColor: 'white', borderWidth: '5px', background: 'linear-gradient(90deg, rgba(1,84,229,1) 0%, rgba(32,117,242,1) 10%, rgba(56,178,254,1) 100%);' }}>
+            <div className='text-light-foreground dark:text-dark-foreground rounded-t-md' style={{ borderColor: 'white', borderWidth: '5px', background: 'linear-gradient(90deg, rgba(1,84,229,1) 0%, rgba(32,117,242,1) 10%, rgba(56,178,254,1) 100%)' }}>
                 <div className='flex p-1'>
                     <img src="cmd.png" style={{ marginRight: '7px', width: '30px', height: '25px' }}></img>
-                    C:\Resume\PieterLinde\resume\cmd.exe {isMaxedOut}
+
+                    C:\Resume\PieterLinde\resume\cmd.exe
+
                     <div className='flex w-full origin-right justify-end'>
                         <div onClick={onMaximizeScreen} className='cursor-pointer flex items-center origin-center justify-center rounded-sm' style={{ marginRight: '5px', backgroundColor: '#ECEAD8', width: '22px', fontWeight: 'bold', boxShadow: '0.5px 0.5px 0.5px 0.5px rgba(0,0,0,0.35)' }}>
                             <img src="maxwindow.png" style={{ width: '25px', height: '20px', opacity: '0.8' }} ></img>
                         </div>
-                        <div onClick={onClose} className='cursor-pointer flex items-center origin-center justify-center rounded-sm' style={{ backgroundColor: '#ECEAD8', width: '22px', fontWeight: 'bold', boxShadow: '0.5px 0.5px 0.5px 0.5px rgba(0,0,0,0.35)' }}>
+                        <div onClick={onTerminalClose} className='cursor-pointer flex items-center origin-center justify-center rounded-sm' style={{ backgroundColor: '#ECEAD8', width: '22px', fontWeight: 'bold', boxShadow: '0.5px 0.5px 0.5px 0.5px rgba(0,0,0,0.35)' }}>
                             <img src="close.png" style={{ width: '12px', height: '12px', opacity: '0.6' }} ></img>
                         </div>
                     </div>
@@ -141,5 +141,3 @@ const TerminalPage: React.FC = () => {
         </>
     );
 };
-
-export default TerminalPage;
