@@ -1,7 +1,7 @@
 "use client"
 import '../app/globals.css';
-import { useIsTerminalClosed } from './hooks/use-terminal-closed';
-import TerminalPage from './terminal-page';
+import { useIsTerminalClosed } from './hooks/use-terminal-closed'; 
+import TerminalPage from './pages/terminal/terminal-page';
 
 const LandingPage: React.FC = () => {
   const terminalState = useIsTerminalClosed(false);
