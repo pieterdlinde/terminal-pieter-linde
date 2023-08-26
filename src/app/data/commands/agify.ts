@@ -1,6 +1,11 @@
 import axios, { AxiosResponse } from "axios";
 
 export const agify = async (args: string): Promise<string> => {
+  const name = args;
+  if (!name || name.length === 0) {
+    return 'Usage: agify [name]. Example: agify pieter';
+  }
+
   const data = await getData(args);
   return data.activity;
 };

@@ -19,26 +19,32 @@ export class AvailableCommands {
       new AvailableCommand("help", "Show help information"),// Done
       new AvailableCommand("about", "About Me"),
       new AvailableCommand("banner", "Show a banner"),
-      new AvailableCommand("bing", "Search using Bing"),
-      new AvailableCommand("cd", "Change directory"),
+      // new AvailableCommand("bing", "Search using Bing"),
+      // new AvailableCommand("cd", "Change directory"),
       new AvailableCommand("date", "Display the current date"),
-      new AvailableCommand("echo", "Print a message"),
+      // new AvailableCommand("echo", "Print a message"),
       new AvailableCommand("email", "Send me an email"),
       new AvailableCommand("github", "Open GitHub"),
       new AvailableCommand("google", "Search using Google"),
       new AvailableCommand("linkedin", "Open LinkedIn"),
-      new AvailableCommand("ls", "List files in a directory"),
+      // new AvailableCommand("ls", "List files in a directory"),
       new AvailableCommand("projects", "Show projects"),
       new AvailableCommand("quote", "Display a quote"),
-      new AvailableCommand("reddit", "Open Reddit"),
+      // new AvailableCommand("reddit", "Open Reddit"),
       new AvailableCommand("repo", "Open repository"),
       new AvailableCommand("resume", "Open resume"),
-      new AvailableCommand("sudo", "Execute as superuser"),
-      new AvailableCommand("sumfetch", "Fetch summary"),
+      // new AvailableCommand("sudo", "Execute as superuser"),
+      // new AvailableCommand("sumfetch", "Fetch summary"),
       new AvailableCommand("weather", "Display weather"),
-      new AvailableCommand("whoami", "Show current user"),
+      // new AvailableCommand("whoami", "Show current user"),
       new AvailableCommand("bored", "Are you board?"),
       new AvailableCommand("agify", "How old is your name?"),
+      new AvailableCommand("chucknorris", "Do you want to go there?"),
+      new AvailableCommand("numberstrivia", "Fun fact about your favorite number"),
+      new AvailableCommand("countryfact", "Country Facts"),
+      new AvailableCommand("meowfact", "meow meow meow meow"),
+      new AvailableCommand("gui", "Profile Website"),
+      new AvailableCommand("game", "Game (In progress)"),
     ]
   };
 
@@ -46,7 +52,7 @@ export class AvailableCommands {
   public static commandExists = (command: string): boolean => {
     // Use the some() method to check if any command's Name matches the given command
     // Returns true if a match is found, otherwise false
-    const exist = AvailableCommands.allCommands().some(d => d.name === command);
+    const exist = AvailableCommands.allCommands().some(d => d.name.toLowerCase() === command.toLowerCase());
     return exist;
   };
 
@@ -57,7 +63,7 @@ export class AvailableCommands {
     }
 
     const anyBin: any = bin;
-    const output = await anyBin[command](argumentData);
+    const output = await anyBin[command.toLowerCase()](argumentData);
     return output;
   };
 
