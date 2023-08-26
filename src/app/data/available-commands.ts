@@ -40,7 +40,7 @@ export class AvailableCommands {
       new AvailableCommand("bored", "Are you board?"),
       new AvailableCommand("agify", "How old is your name?"),
       new AvailableCommand("chucknorris", "Do you want to go there?"),
-      new AvailableCommand("number", "Fun fact about your favorite number"),
+      // new AvailableCommand("number", "Fun fact about your favorite number"), -http not allowed
       new AvailableCommand("country", "Country Facts"),
       new AvailableCommand("meow", "meow meow meow meow"),
       new AvailableCommand("gui", "Profile Website"),
