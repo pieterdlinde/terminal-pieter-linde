@@ -3,7 +3,7 @@ import axios, { AxiosResponse } from "axios";
 export const weather = async (args: string[]): Promise<string> => {
   const city = args.join('+');
   if (!city) {
-    return 'Usage: weather [city]. Example: weather casablanca';
+    return 'Usage: weather [city]. Example: weather amsterdam';
   }
   const weather = await getWeather(city);
   return weather;

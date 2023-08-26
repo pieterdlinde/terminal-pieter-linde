@@ -1,6 +1,7 @@
 import React from 'react';
 import Ps1 from '../ps1/ps1';
 import { History as HistoryInterface } from './interface';
+import Typewriter from '@/app/hooks/typewriter';
 
 interface HistoryProps {
   history: HistoryInterface[];
@@ -23,7 +24,10 @@ const History: React.FC<HistoryProps> = ({ history }) => {
             className="whitespace-pre-wrap mb-2"
             style={{ lineHeight: 'normal' }}
             dangerouslySetInnerHTML={{ __html: entry.output }}
-          />
+          >
+              {/* <Typewriter text={entry.output} delay={5} /> */}
+              
+          </p>
         </div>
       ))}
     </>
