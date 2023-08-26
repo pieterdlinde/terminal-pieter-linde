@@ -1,7 +1,7 @@
 import React from 'react';
 import Ps1 from '../ps1/ps1';
 import { History as HistoryInterface } from './interface';
-import Typewriter from '@/app/hooks/typewriter';
+import Typewriter from '@/app/hooks/type-writer';
 
 interface HistoryProps {
   history: HistoryInterface[];

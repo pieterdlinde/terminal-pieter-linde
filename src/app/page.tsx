@@ -1,16 +1,44 @@
 "use client"
+import React, { useRef } from 'react';
 import '../app/globals.css';
-import { useIsTerminalClosed } from './hooks/use-terminal-closed'; 
+import useScreenSize from './hooks/use-screen-size';
+import { useIsTerminalClosed } from './hooks/use-terminal-closed';
 import TerminalPage from './pages/terminal/terminal-page';
+import TerminalMobileCommandLine from './pages/terminal/terminal-mobile-command-line';
+import config from './data/config';
 
 const LandingPage: React.FC = () => {
+  const inputRef = React.useRef<HTMLInputElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
   const terminalState = useIsTerminalClosed(false);
+  const screenSize = useScreenSize();
 
   const onTerminalOpen = () => {
     if (terminalState.isTerminalClosed) {
       terminalState.setIsTerminalClosed(false)
     }
   };
+
+
+  if (screenSize.width < 850) {
+    return (
+      <>
+        <div>
+          <div>
+            Sorry not supported on mobile - yet :)
+          </div>
+          <div>
+            Visit <u><a className="text-light-blue dark:text-dark-blue underline" href="${config.gui_url}" target="_blank">here</a></u>  for progress
+          </div>
+
+        </div>
+
+        {/* <TerminalMobileCommandLine inputRef={inputRef} containerRef={containerRef}></TerminalMobileCommandLine> */}
+      </>
+    )
+  }
+
 
   return (
     <div className="flex items-center justify-center w-screen h-screen ">
