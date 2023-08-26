@@ -1,9 +1,9 @@
 import axios, { AxiosResponse } from "axios";
 
-export const numberstrivia = async (args: string): Promise<string> => {
+export const number = async (args: string): Promise<string> => {
   const number = args;
   if (!number || number.length === 0) {
-    return 'Usage: numberstrivia [number]. Example: numberstrivia 33';
+    return 'Usage: number [number]. Example: number 33';
   }
 
   const data = await getNumbersTrivia(args);

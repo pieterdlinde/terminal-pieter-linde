@@ -17,7 +17,7 @@ export * from './help';
 export * from './linkedin';
 export * from './ls';
 export * from './meow';
-export * from './numberstrivia';
+export * from './number';
 export * from './projects';
 export * from './quote';
 export * from './reddit';

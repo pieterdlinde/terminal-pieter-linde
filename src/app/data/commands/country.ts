@@ -91,12 +91,15 @@ interface CountryInfo {
 }
 
 export const getCountryFact = async (name: string): Promise<{ activity: string }> => {
+    
+    try {
+    
     const response: AxiosResponse<CountryInfo[]> = await axios.get(
         'https://restcountries.com/v3.1/name/' + name
     );
-
+ 
     if (response.status === 404) {
-        return { activity: `Usage: countryfact [name]. Example: countryfact netherlands` };
+        return { activity: 'Usage: country [name]. Example: country netherlands' };
     }
 
 let activity = '';
@@ -119,4 +122,8 @@ ${languages}
     return {
         activity: activity,
     };
+
+} catch (error) {
+    return { activity: 'Usage: country [name]. Example: country netherlands'};
+}
 };
