@@ -6,7 +6,7 @@ export const countryfact = async (args: string[]): Promise<string> => {
         return 'Usage: countryfact [name]. Example: countryfact netherlands';
     }
 
-    const data = await getData(name);
+    const data = await getCountryFact(name);
     return data.activity;
 };
 
@@ -90,7 +90,7 @@ interface CountryInfo {
     };
 }
 
-export const getData = async (name: string): Promise<{ activity: string }> => {
+export const getCountryFact = async (name: string): Promise<{ activity: string }> => {
     const response: AxiosResponse<CountryInfo[]> = await axios.get(
         'https://restcountries.com/v3.1/name/' + name
     );
@@ -99,21 +99,24 @@ export const getData = async (name: string): Promise<{ activity: string }> => {
         return { activity: `Usage: countryfact [name]. Example: countryfact netherlands` };
     }
 
+let activity = '';
+for (const country of response.data) {
     let languages = "";
-    for (const languageCode in response.data[0].languages) {
-        if (response.data[0].languages.hasOwnProperty(languageCode)) {
-            const languageName = response.data[0].languages[languageCode];
-            languages += `Language code: ${languageCode}, Language name: ${languageName} \n`
+    for (const languageCode in country.languages) {
+        if (country.languages.hasOwnProperty(languageCode)) {
+            const languageName = country.languages[languageCode];
+            languages += `Code: ${languageCode} - Name: ${languageName} \n`
         }
     }
+    activity += `
+Common Name - ${country.name.common}
+Official Name - ${country.name.official} 
+Capital - ${country.capital}
+Status - ${country.status} 
+${languages} 
+`};
 
     return {
-        activity: `
-Country Common Name - ${response.data[0].name.common}
-Official Name - ${response.data[0].name.official} 
-Capital - ${response.data[0].capital}
-Status - ${response.data[0].status} 
-${languages} 
-    `,
+        activity: activity,
     };
 };

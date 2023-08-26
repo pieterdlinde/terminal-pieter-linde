@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 
 export const meowfact = async (args: string): Promise<string> => {
-  const data = await getData();
+  const data = await getMeowFact();
   return data.quote;
 };
 
@@ -10,7 +10,7 @@ interface CatInfo {
 }
 
 
-export const getData = async (): Promise<{ quote: string }> => {
+export const getMeowFact = async (): Promise<{ quote: string }> => {
   const response: AxiosResponse<CatInfo> = await axios.get(
     'https://meowfacts.herokuapp.com/'
   );

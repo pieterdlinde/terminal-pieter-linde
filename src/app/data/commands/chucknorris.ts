@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 
 export const chucknorris = async (args: string): Promise<string> => {
-  const data = await getData(args);
+  const data = await getChucknorris(args);
   return data.activity;
 };
 
@@ -15,7 +15,7 @@ interface ChuckNorrisJoke {
     value: string;
   }
 
-export const getData = async (name: string): Promise<{ activity: string }> => {
+export const getChucknorris = async (name: string): Promise<{ activity: string }> => {
   const response: AxiosResponse<ChuckNorrisJoke> = await axios.get(
     'https://api.chucknorris.io/jokes/random'+name
   );

@@ -1,7 +1,7 @@
 import { AvailableCommands } from "../available-commands";
 
 export const help = async (args: string): Promise<string> => { 
-    const commandList: string = AvailableCommands.allCommands().sort()
+    const commandList: string = AvailableCommands.allCommands().sort((a, b) => a.name.localeCompare(b.name))
       .map(command => {
           return '<b class="text-light-blue dark:text-dark-blue" >'+command.name+'</b>' +" - "+ command.description+ '\n';
       })

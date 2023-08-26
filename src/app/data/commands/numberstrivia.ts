@@ -6,12 +6,12 @@ export const numberstrivia = async (args: string): Promise<string> => {
     return 'Usage: numberstrivia [number]. Example: numberstrivia 33';
   }
 
-  const data = await getData(args);
+  const data = await getNumbersTrivia(args);
   return data.activity;
 };
  
 
-export const getData = async (name: string): Promise<{ activity: string }> => {
+export const getNumbersTrivia = async (name: string): Promise<{ activity: string }> => {
   const response: AxiosResponse<string> = await axios.get(
     'http://numbersapi.com/'+name
   );
