@@ -41,8 +41,8 @@ export class AvailableCommands {
       new AvailableCommand("agify", "How old is your name?"),
       new AvailableCommand("chucknorris", "Do you want to go there?"),
       new AvailableCommand("numberstrivia", "Fun fact about your favorite number"),
-      new AvailableCommand("countryfact", "Country Facts"),
-      new AvailableCommand("meowfact", "meow meow meow meow"),
+      new AvailableCommand("country", "Country Facts"),
+      new AvailableCommand("meow", "meow meow meow meow"),
       new AvailableCommand("gui", "Profile Website"),
       new AvailableCommand("game", "Game (In progress)"),
     ]

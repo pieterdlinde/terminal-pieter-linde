@@ -1,9 +1,9 @@
 import axios, { AxiosResponse } from "axios";
 
-export const countryfact = async (args: string[]): Promise<string> => {
+export const country = async (args: string[]): Promise<string> => {
     const name = args.join(' ');
     if (!name || name.length === 0) {
-        return 'Usage: countryfact [name]. Example: countryfact netherlands';
+        return 'Usage: country [name]. Example: country netherlands';
     }
 
     const data = await getCountryFact(name);
