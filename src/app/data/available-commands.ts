@@ -50,9 +50,9 @@ export class AvailableCommands {
       // new AvailableCommand("whoami", "Show current user"),
       new AvailableCommand("bored", "Are you board?", false),
       new AvailableCommand("agify", "How old is your name?", false),
-      new AvailableCommand("chucknorris", "Do you want to go there?", false),
+      new AvailableCommand("chucknorris", "Do you want to go there?", true),
       // new AvailableCommand("number", "Fun fact about your favorite number"), -http not allowed
-      new AvailableCommand("country", "Country Facts", false),
+      new AvailableCommand("country", "Country Facts", true),
       new AvailableCommand("meow", "meow meow meow meow", false),
       new AvailableCommand("gui", "Profile Website", true),
       new AvailableCommand("game", "Game (In progress)", true),

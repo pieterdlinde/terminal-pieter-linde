@@ -26,7 +26,7 @@ const History: React.FC<HistoryProps> = ({ history }) => {
             :
             <p className="whitespace-pre-wrap mb-2"
               style={{ lineHeight: 'normal' }}>
-              <Typewriter text={entry.output.output} delay={3} /></p>}
+              <Typewriter text={entry.output.output} delay={0} /></p>}
         </div>
       ))}
     </>
