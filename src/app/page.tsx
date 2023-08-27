@@ -29,7 +29,7 @@ const LandingPage: React.FC = () => {
             Sorry not supported on mobile - yet :)
           </div>
           <div>
-            Visit <u><a className="text-light-blue dark:text-dark-blue underline" href="${config.gui_url}" target="_blank">here</a></u>  for progress
+            {/* Visit <u><a className="text-light-blue dark:text-dark-blue underline" href="${config.gui_url}" target="_blank">here</a></u>  for progress */}
           </div>
 
         </div>
