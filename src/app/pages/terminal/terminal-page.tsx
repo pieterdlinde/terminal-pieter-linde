@@ -34,7 +34,7 @@ export default function TerminalPage(prop: { terminalState: any }) {
             <div
                 className="text-light-foreground dark:text-dark-foreground md:text-base rounded-b-md"
                 onClick={onClickAnywhere}
-                style={{ height: `${isMaximized ? '94vh' : '70vh'}`, width: `${isMaximized ? '99.8vw' : '70vw'}`, borderBottomWidth: '5px', borderLeftWidth: '5px', borderRightWidth: '5px', boxShadow: `${isMaximized ? '-4px -3px 45px 21px rgba(0,0,0,0.35)' : ''}` }} >
+                style={{ height: `${isMaximized ? '94vh' : '70vh'}`, width: `${isMaximized ? '99.8vw' : '70vw'}`, borderBottomWidth: '5px', borderLeftWidth: '5px', borderRightWidth: '5px'}} >
                 <TerminalCommandLine inputRef={inputRef} containerRef={containerRef}></TerminalCommandLine>
             </div>
         </>
