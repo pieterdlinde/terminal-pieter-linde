@@ -21,7 +21,7 @@ const LandingPage: React.FC = () => {
   };
 
 
-  if (screenSize.width < 850) {
+  if (screenSize.width !== 0 && screenSize.width < 850) {
     return (
       <>
         <div>
