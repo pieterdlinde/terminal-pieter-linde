@@ -28,7 +28,7 @@ export default function TerminalPage(prop: { terminalState: any }) {
 
     return (
         <>
-            <div className='text-light-foreground dark:text-dark-foreground rounded-t-md' style={{ borderColor: 'white', borderWidth: '5px', background: 'linear-gradient(90deg, rgba(1,84,229,1) 0%, rgba(32,117,242,1) 10%, rgba(56,178,254,1) 100%)' }}>
+            <div className='text-light-foreground dark:text-dark-foreground rounded-t-md' style={{ borderColor: '#CECECE', borderWidth: '5px', background: 'linear-gradient(90deg, rgba(1,84,229,1) 0%, rgba(32,117,242,1) 10%, rgba(56,178,254,1) 100%)' }}>
                 <TerminalToolbar onMaximizeScreen={onMaximizeScreen} onTerminalClose={onTerminalClose}></TerminalToolbar>
             </div>
             <div
