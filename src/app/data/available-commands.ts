@@ -48,7 +48,7 @@ export class AvailableCommands {
       // new AvailableCommand("sumfetch", "Fetch summary"),
       new AvailableCommand("weather", "Display weather", true),
       // new AvailableCommand("whoami", "Show current user"),
-      new AvailableCommand("bored", "Are you board?", false),
+      // new AvailableCommand("bored", "Are you board?", false),
       new AvailableCommand("agify", "How old is your name?", false),
       new AvailableCommand("chucknorris", "Do you want to go there?", true),
       // new AvailableCommand("number", "Fun fact about your favorite number"), -http not allowed
