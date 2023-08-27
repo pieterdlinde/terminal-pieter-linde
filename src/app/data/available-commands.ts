@@ -57,6 +57,7 @@ export class AvailableCommands {
       new AvailableCommand("gui", "Profile Website", true),
       new AvailableCommand("game", "Game (In progress)", true),
       new AvailableCommand("references", "My references", true),
+      new AvailableCommand("education", "My education", true),
     ]
   };
 

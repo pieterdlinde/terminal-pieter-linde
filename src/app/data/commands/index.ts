@@ -8,6 +8,7 @@ export * from './chucknorris';
 export * from './country';
 export * from './date';
 export * from './echo';
+export * from './education';
 export * from './email';
 export * from './game';
 export * from './github';

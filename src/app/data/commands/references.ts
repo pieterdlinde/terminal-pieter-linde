@@ -31,7 +31,7 @@ Name: ${reference.name}\n
 Position: ${reference.position}\n
 Email: ${reference.email}\n 
 <a class="text-light-blue dark:text-dark-blue underline" href="${reference.linkedIn}" target="_blank">${reference.linkedIn}</a>
-        `
+\n-------------------------------------------------\n`
     });
     return returnValue;
 };
