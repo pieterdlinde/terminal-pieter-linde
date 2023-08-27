@@ -15,6 +15,7 @@ export * from './github';
 export * from './google';
 export * from './gui';
 export * from './help';
+export * from './hobbies';
 export * from './linkedin';
 export * from './ls';
 export * from './meow';

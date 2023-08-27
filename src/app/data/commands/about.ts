@@ -28,8 +28,5 @@ outdoor adventures, and home improvement endeavors.
 
 Don't hesitate to reach out if you have any questions or 
 would like to connect. Thanks for visiting!
-    
-Best regards,
-Pieter    
   `;
   };
