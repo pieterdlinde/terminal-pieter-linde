@@ -4,10 +4,21 @@ import * as bin from './commands/index';
 export class AvailableCommand {
   public name: string;         // Name of the command
   public description: string;  // Description of the command
+  public dangerouslySetInnerHTML: boolean;
 
-  constructor(name: string, description: string) {
+  constructor(name: string, description: string, dangerouslySetInnerHTML: boolean) {
     this.name = name;
     this.description = description;
+    this.dangerouslySetInnerHTML = dangerouslySetInnerHTML;
+  }
+}
+export class CommandOutput { 
+  public output: string;  // Description of the command
+  public dangerouslySetInnerHTML: boolean;
+
+  constructor(output: string, dangerouslySetInnerHTML: boolean) {
+    this.output = output; 
+    this.dangerouslySetInnerHTML = dangerouslySetInnerHTML;
   }
 }
 
@@ -16,35 +27,36 @@ export class AvailableCommands {
   // Array to hold the available command objects
   public static allCommands(): AvailableCommand[] {
     return [
-      new AvailableCommand("help", "Show help information"),// Done
-      new AvailableCommand("about", "About Me"),
-      new AvailableCommand("banner", "Show a banner"),
+      new AvailableCommand("help", "Show help information", true),// Done
+      new AvailableCommand("about", "About Me", false),
+      new AvailableCommand("banner", "Show a banner", true),
       // new AvailableCommand("bing", "Search using Bing"),
       // new AvailableCommand("cd", "Change directory"),
-      new AvailableCommand("date", "Display the current date"),
+      new AvailableCommand("date", "Display the current date", false),
       // new AvailableCommand("echo", "Print a message"),
-      new AvailableCommand("email", "Send me an email"),
-      new AvailableCommand("github", "Open GitHub"),
-      new AvailableCommand("google", "Search using Google"),
-      new AvailableCommand("linkedin", "Open LinkedIn"),
+      new AvailableCommand("email", "Send me an email", true),
+      new AvailableCommand("github", "Open GitHub", true),
+      new AvailableCommand("google", "Search using Google", true),
+      new AvailableCommand("linkedin", "Open LinkedIn", true),
       // new AvailableCommand("ls", "List files in a directory"),
-      new AvailableCommand("projects", "Show projects"),
-      new AvailableCommand("quote", "Display a quote"),
+      new AvailableCommand("projects", "Show projects", true),
+      new AvailableCommand("quote", "Display a quote", false),
       // new AvailableCommand("reddit", "Open Reddit"),
-      new AvailableCommand("repo", "Open repository"),
-      new AvailableCommand("resume", "Open resume"),
+      new AvailableCommand("repo", "Open repository", true),
+      new AvailableCommand("resume", "Open resume", true),
       // new AvailableCommand("sudo", "Execute as superuser"),
       // new AvailableCommand("sumfetch", "Fetch summary"),
-      new AvailableCommand("weather", "Display weather"),
+      new AvailableCommand("weather", "Display weather", true),
       // new AvailableCommand("whoami", "Show current user"),
-      new AvailableCommand("bored", "Are you board?"),
-      new AvailableCommand("agify", "How old is your name?"),
-      new AvailableCommand("chucknorris", "Do you want to go there?"),
+      new AvailableCommand("bored", "Are you board?", false),
+      new AvailableCommand("agify", "How old is your name?", false),
+      new AvailableCommand("chucknorris", "Do you want to go there?", false),
       // new AvailableCommand("number", "Fun fact about your favorite number"), -http not allowed
-      new AvailableCommand("country", "Country Facts"),
-      new AvailableCommand("meow", "meow meow meow meow"),
-      new AvailableCommand("gui", "Profile Website"),
-      new AvailableCommand("game", "Game (In progress)"),
+      new AvailableCommand("country", "Country Facts", false),
+      new AvailableCommand("meow", "meow meow meow meow", false),
+      new AvailableCommand("gui", "Profile Website", true),
+      new AvailableCommand("game", "Game (In progress)", true),
+      new AvailableCommand("references", "My references", true),
     ]
   };
 
@@ -56,15 +68,17 @@ export class AvailableCommands {
     return exist;
   };
 
-  public static executeCommand = async (command: string, argumentData?: string): Promise<string> => {
-    if (!this.commandExists(command)) {
+  public static executeCommand = async (command: string, argumentData?: string): Promise<CommandOutput> => {
+   const availableCommand = AvailableCommands.allCommands().find(d => d.name.toLowerCase() === command.toLowerCase())
+    if (!availableCommand) {
       // Not a valid command
-      return "Invalid Command";
+      return new CommandOutput("Invalid Command", true);
     }
 
     const anyBin: any = bin;
     const output = await anyBin[command.toLowerCase()](argumentData);
-    return output;
+
+    return new CommandOutput(output, availableCommand.dangerouslySetInnerHTML);
   };
 
 

@@ -1,6 +1,7 @@
 import History from "@/app/components/history/history";
 import { useHistory } from "@/app/components/history/use-history";
 import Input from "@/app/components/input/input";
+import { CommandOutput } from "@/app/data/available-commands";
 import { banner } from "@/app/data/commands";
 import { useCallback, useEffect, useRef } from "react";
 
@@ -15,8 +16,8 @@ export default function TerminalCommandLine(props: any) {
         setLastCommandIndex,
     } = useHistory([]);
 
-    
-    const init = useCallback(() => setHistory(banner()), []);
+    const initBanner = new CommandOutput(banner(), false);
+    const init = useCallback(() => setHistory(initBanner), []);
 
     useEffect(() => { 
         init();

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'; 
 import { History } from './interface';
+import { CommandOutput } from '@/app/data/available-commands';
 
 export const useHistory = (defaultValue: History[]) => {
   const [history, setHistory] = useState<History[]>(defaultValue);
@@ -10,7 +11,7 @@ export const useHistory = (defaultValue: History[]) => {
     history,
     command,
     lastCommandIndex,
-    setHistory: (output: string) =>
+    setHistory: (output: CommandOutput) =>
       setHistory([
         ...history,
         {

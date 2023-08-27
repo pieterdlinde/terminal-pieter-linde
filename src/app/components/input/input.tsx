@@ -1,7 +1,7 @@
 import { shell } from '@/app/helpers/shell';
 import React, { RefObject, useRef } from 'react';
 import Ps1 from '../ps1/ps1';
-import { AvailableCommands } from '@/app/data/available-commands';
+import { AvailableCommands, CommandOutput } from '@/app/data/available-commands';
  
 
 interface InputProps {
@@ -11,7 +11,7 @@ interface InputProps {
   history: Array<{ command: string }>;
   lastCommandIndex: number;
   setCommand: React.Dispatch<React.SetStateAction<string>>;
-  setHistory: (output:string) => void;
+  setHistory: (output:CommandOutput) => void;
   setLastCommandIndex: React.Dispatch<React.SetStateAction<number>>;
   clearHistory: () => void;
 }
@@ -35,7 +35,7 @@ const Input: React.FC<InputProps> = ({
     if (event.key === 'c' && event.ctrlKey) {
       event.preventDefault();
       setCommand('');
-      setHistory('');
+      setHistory(new CommandOutput('',true));
       setLastCommandIndex(0);
     }
 

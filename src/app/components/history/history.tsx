@@ -19,15 +19,14 @@ const History: React.FC<HistoryProps> = ({ history }) => {
 
             <div className="flex-grow">{entry.command}</div>
           </div>
-
-          <p
-            className="whitespace-pre-wrap mb-2"
-            style={{ lineHeight: 'normal' }}
-            dangerouslySetInnerHTML={{ __html: entry.output }}
-          >
-              {/* <Typewriter text={entry.output} delay={5} /> */}
-              
-          </p>
+          {entry.output.dangerouslySetInnerHTML ?
+            <p className="whitespace-pre-wrap mb-2"
+              style={{ lineHeight: 'normal' }}
+              dangerouslySetInnerHTML={{ __html: entry.output.output }}></p>
+            :
+            <p className="whitespace-pre-wrap mb-2"
+              style={{ lineHeight: 'normal' }}>
+              <Typewriter text={entry.output.output} delay={3} /></p>}
         </div>
       ))}
     </>
