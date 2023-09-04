@@ -11,7 +11,7 @@ export const number = async (args: string): Promise<string> => {
 };
  
 
-export const getNumbersTrivia = async (name: string): Promise<{ activity: string }> => {
+const getNumbersTrivia = async (name: string): Promise<{ activity: string }> => {
   const response: AxiosResponse<string> = await axios.get(
     'http://numbersapi.com/'+name
   );

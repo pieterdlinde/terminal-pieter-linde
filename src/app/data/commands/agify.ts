@@ -17,7 +17,7 @@ interface PersonData {
   }
   
 
-export const getData = async (name: string): Promise<{ activity: string }> => {
+const getData = async (name: string): Promise<{ activity: string }> => {
   const response: AxiosResponse<PersonData> = await axios.get(
     'https://api.agify.io/?name='+name
   );

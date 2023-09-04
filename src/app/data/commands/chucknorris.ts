@@ -15,7 +15,7 @@ interface ChuckNorrisJoke {
     value: string;
   }
 
-export const getChucknorris = async (name: string): Promise<{ activity: string }> => {
+const getChucknorris = async (name: string): Promise<{ activity: string }> => {
   const response: AxiosResponse<ChuckNorrisJoke> = await axios.get(
     'https://api.chucknorris.io/jokes/random'+name
   );

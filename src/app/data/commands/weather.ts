@@ -9,7 +9,7 @@ export const weather = async (args: string[]): Promise<string> => {
   return weather;
 };
 
-export const getWeather = async (city: string): Promise<string> => {
+const getWeather = async (city: string): Promise<string> => {
   try {
     const response: AxiosResponse<string> = await axios.get(
       `https://wttr.in/${city}?ATm`

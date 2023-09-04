@@ -11,7 +11,7 @@ interface QuoteData {
   // Add other properties as needed
 }
 
-export const getQuote = async (): Promise<{ quote: string }> => {
+const getQuote = async (): Promise<{ quote: string }> => {
   const response: AxiosResponse<QuoteData> = await axios.get(
     'https://api.quotable.io/random'
   );

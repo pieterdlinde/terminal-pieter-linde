@@ -90,7 +90,7 @@ interface CountryInfo {
     };
 }
 
-export const getCountryFact = async (name: string): Promise<{ activity: string }> => {
+const getCountryFact = async (name: string): Promise<{ activity: string }> => {
     
     try {
     

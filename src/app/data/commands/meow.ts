@@ -10,7 +10,7 @@ interface CatInfo {
 }
 
 
-export const getMeowFact = async (): Promise<{ quote: string }> => {
+const getMeowFact = async (): Promise<{ quote: string }> => {
   const response: AxiosResponse<CatInfo> = await axios.get(
     'https://meowfacts.herokuapp.com/'
   );

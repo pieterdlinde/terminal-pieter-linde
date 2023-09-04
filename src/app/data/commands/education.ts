@@ -14,15 +14,15 @@ class EducationListings {
     }
 }
 
-export const education = async (args: string): Promise<string> => {
+const education = async (args: string): Promise<string> => {
 
     const references: EducationListings[] = [
-        new EducationListings("National Senior Certificate","Hoërskool Reitz, Reitz, Free State, South Africa","2008",`Computer Applications Technology - 95%\nMathematical - 77%\nLife Orientation - 85%`),
-        new EducationListings("Bachelor of Science (B.Sc.) Honours, Information Technology", "Computer Science and Information Systems" ,"North-West University, South-Africa","2012"),
-        new EducationListings("Bachelor of Science (B.Sc.), Information Technology","Computer Science and Information Systems","North-West University, South-Africa",`2008 - 2011`),
-        new EducationListings("Microsoft","MS: Programming in HTML5 with JavaScript and CSS3","2015",``),
+        new EducationListings("Microsoft","MCTS: .NET Framework 4, Windows Applications","2013",``),
         new EducationListings("Microsoft","MCPS: Microsoft Certified Professional","2014",``),
-        new EducationListings("Microsoft","MCTS: .NET Framework 4, Windows Applications","2013",``)
+        new EducationListings("Microsoft","MS: Programming in HTML5 with JavaScript and CSS3","2015",``),
+        new EducationListings("National Senior Certificate","Hoërskool Reitz, Reitz, Free State, South Africa","2008",`Computer Applications Technology - 95%\nMathematical - 77%\nLife Orientation - 85%`),
+        new EducationListings("Bachelor of Science (B.Sc.), Information Technology","Computer Science and Information Systems","North-West University, South-Africa",`2008 - 2011`),
+        new EducationListings("Bachelor of Science (B.Sc.) Honours, Information Technology", "Computer Science and Information Systems" ,"North-West University, South-Africa","2012"),
     ]
 
     let returnValue = "";

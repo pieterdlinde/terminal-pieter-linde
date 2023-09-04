@@ -16,7 +16,7 @@ interface ActivityData {
   }
   
 
-export const getActivity = async (): Promise<{ activity: string }> => {
+const getActivity = async (): Promise<{ activity: string }> => {
   const response: AxiosResponse<ActivityData> = await axios.get(
     'http://www.boredapi.com/api/activity/'
   );
