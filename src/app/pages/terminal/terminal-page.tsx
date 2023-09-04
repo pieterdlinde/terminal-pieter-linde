@@ -4,11 +4,13 @@ import '../../../app/globals.css';
 
 import TerminalToolbar from './terminal-toolbar';
 import TerminalCommandLine from './terminal-command-line';
+import useScreenSize from '@/app/hooks/use-screen-size';
 
 export default function TerminalPage(prop: { terminalState: any }) {
     const [isMaximized, setIsMaximized] = useState(false);
     const inputRef = React.useRef<HTMLInputElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
+    const screenSize = useScreenSize();
 
     const onClickAnywhere = () => {
         inputRef!.current!.focus();
@@ -34,7 +36,7 @@ export default function TerminalPage(prop: { terminalState: any }) {
             <div
                 className="text-light-foreground dark:text-dark-foreground md:text-base rounded-b-md"
                 onClick={onClickAnywhere}
-                style={{ height: `${isMaximized ? '94vh' : '70vh'}`, width: `${isMaximized ? '99.8vw' : '70vw'}`, borderBottomWidth: '5px', borderLeftWidth: '5px', borderRightWidth: '5px'}} >
+                style={{ height: `${isMaximized ? `${screenSize.height-43}px` : '70vh'}`, width: `${isMaximized ? `${screenSize.width-1}px` : '70vw'}`, borderBottomWidth: '5px', borderLeftWidth: '5px', borderRightWidth: '5px', borderColor:'#CECECE'}} >
                 <TerminalCommandLine inputRef={inputRef} containerRef={containerRef}></TerminalCommandLine>
             </div>
         </>
