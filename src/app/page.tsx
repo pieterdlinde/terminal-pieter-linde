@@ -59,8 +59,12 @@ const LandingPage: React.FC = () => {
         </Tooltip>
         <img onClick={onTerminalOpen} style={{ marginTop: '15px', width: '60px', height: '40px' }} src='cmd-icon.png'></img>
         <div style={{ fontSize: '14px', color: '#D7D7D9', fontWeight: 'bold', fontFamily: 'initial' }}>Start.exe</div>
-        <img onClick={onReadmeOpen} style={{ marginTop: '15px', width: '50px', height: '50px' }} src='text-document.png'></img>
-        <div style={{ fontSize: '14px', color: '#D7D7D9', fontWeight: 'bold', fontFamily: 'initial' }}>Readme.txt</div>
+        <Tooltip title='In Progress' position='right'>
+        <img className="cursor-not-allowed" onClick={onReadmeOpen} style={{ marginTop: '15px', width: '50px', height: '50px' }} src='text-document.png'></img>
+        </Tooltip>
+        <Tooltip title='In Progress' position='right'>
+        <div className="cursor-not-allowed" style={{ fontSize: '14px', color: '#D7D7D9', fontWeight: 'bold', fontFamily: 'initial' }}>Readme.txt</div>
+        </Tooltip>
       </div>
       <div className="z-50">
         <TerminalPage terminalState={terminalState} />
