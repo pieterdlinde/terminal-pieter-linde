@@ -3,15 +3,16 @@ import config from "../config";
 
 
 export const projects = async (args: string): Promise<string> => {
-  const projects = await getProjects();
-  const projectList = projects
-    .map(
-      (repo) =>
-        `${repo.name} - <a class="text-light-blue dark:text-dark-blue underline" href="${repo.html_url}" target="_blank">${repo.html_url}</a>`
-    )
-    .join('\n');
+  // const projects = await getProjects();
+  // const projectList = projects
+  //   .map(
+  //     (repo) =>
+  //       `${repo.name} - <a class="text-light-blue dark:text-dark-blue underline" href="${repo.html_url}" target="_blank">${repo.html_url}</a>`
+  //   )
+  //   .join('\n');
 
-    return 'Still need to fix this\n'+ projectList;
+    // return 'Still need to fix this\n'+ projectList;
+    return `Coming soon: Almost there, still a bit to do...`;
 };
 
 
